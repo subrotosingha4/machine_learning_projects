@@ -2,7 +2,7 @@
 Predicting stock price using historical stock data.
 
 ## Requirements
-To install the flask app, you need:
+To run the project, you need:
 - python3
 - python packages in the requirements.txt file
 
