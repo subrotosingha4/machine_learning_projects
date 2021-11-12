@@ -1,0 +1,87 @@
+---
+title: '(Working Title): Gaze-Based Mind Windering Detection using Deep Learning'
+author: |
+  | Derek Harter
+  | Subroto Singha
+  | Texas A\&M University - Commerce
+date: \today
+numbersections: true
+classoption: letterpaper, 12pt, onecolumn, oneside, notitlepage
+header-includes:
+  - \usepackage[backend=biber, style=apa]{biblatex}
+  - \addbibresource{mindwandering-deeplearning-classifier.bib}
+  - \usepackage[nottoc,notlot,notlof]{tocbibind}
+  - \hypersetup{allcolors=blue, colorlinks=true}
+  - \usepackage[margin=1.0in]{geometry}
+  - \usepackage{tikz}
+  - \usetikzlibrary{shapes, arrows}
+  - \usepackage{longtable}
+abstract: |
+  Mind wandering (MW) is a phenomenon where a person shifts their
+  attention from task related to task-unrelated information.  MW is
+  potentially disruptive for any task that people perform, and systems
+  that can detect and correct MW instances can be of great benefit to
+  users.  In this research, we investigated an existing gaze-based
+  mind wandering dataset \parencite{faber-2018} consisting of 62 eye
+  gaze features collected during a reading comprehension task.  The
+  dataset used 135 participants, who self reported instances
+  of mind wandering during a computerized reading task. Eye gaze data
+  were recorded during these trials.  In this presented research,
+  original MW detection using standard ML techniques, such as k-NN,
+  SVM, random forests, and others, were first replicated on the
+  data. Performance of the trained classifiers was measured using
+  AUC-ROC scores and accuracy.  The original ML performance on this
+  data was matched in the reported reserach.  We then applied deep
+  learning classifiers to the mind wandering dataset, using
+  combinations of deep, convolutional and recurrent layers.  Where
+  past and replicated classifiers achieved a best AUC-ROC score of
+  about 0.6595, our best deep classifier using a 1D convolution
+  achieved an AUC-ROC score of 0.8025, with a mean overall accuracy
+  of 0.7278.  In this research we report the results of the
+  replication and the extension using deep learning to improve on the
+  detectors performance, and we discuss how the deep learning
+  classifiers may be working to improve the classification performance
+  over traditional ML approaches.
+---
+
+# Introduction
+
+This is the introduction to this article. \parencite{bixler-2015, faber-2018}.
+
+# Methods
+
+# Results
+
+Figure \ref{figure-aucroc-histogram} shows the resulting histogram
+of AUCROC performance seen from the grid search over model parameters
+trying to optimize AUCROC performance.
+
+![Histogram of AUCROC performance for parameter search of all trained models\label{figure-aucroc-histogram}](../figures/figure-standardml-aucroc-histogram.png){ width=100% }
+
+
+Table \ref{table-standardml-estimator-performance-comparison} summarizes
+the performance of the best estimators we found for each estimator type.
+The best estimator shown was the one with the highest average
+aucroc score over the 5-fold cross validation, that is it was the estimator
+with the highest average aucroc score on the held back fold after training with
+the other folds.  The table shows a final aucroc score obtained using the
+estimator to predict all of the mindwandering data.  We also show the
+final accuracy scores, and precision and recall measures.
+
+\input{../tables/table-standardml-estimator-performance-comparison.tex}
+
+Figure \ref{figure-combined-best-aucroc-scores} gives a comparison of
+the best estimator found for each of the standard machine learning
+estimators searched.  The average score represents the average
+auc-roc score over the 5-fold cross validation obtained when performing
+the grid search.  The final score is the auc-roc score of the best
+estimator using the full data set all together.
+
+![Comparison of AUCROC scores achieved by best standard ML models in each type of estimator that was explored.\label{figure-combined-best-aucroc-scores}](../figures/figure-standardml-combined-best-aucroc-curves.png){ width=100% }
+
+# Discussion
+
+# Conclusion
+
+\printbibliography[heading=bibintoc]
+
